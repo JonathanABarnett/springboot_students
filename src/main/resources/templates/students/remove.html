@@ -16,7 +16,7 @@
             </tr>
         </thead>
             <tr th:each="student : ${students}">
-                <th scope="row"><input class="form-check-input" type="checkbox" name="studentsId" th:value="${student.id}" /></th>
+                <td scope="row"><input class="form-check-input" type="checkbox" name="studentsId" th:value="${student.id}" /></td>
                 <td th:text="${student.id}"></td>
                 <td th:text="${student.firstName}"></td>
                 <td th:text="${student.lastName}"></td>

@@ -7,18 +7,27 @@
 <h1>Register Your Student</h1>
 <nav th:replace="fragments :: navigation"></nav>
 
-<form method="post" style="max-width: 500px">
+<form method="post" style="max-width: 500px" th:object="${student}">
     <div class="form-group">
-        <label for="first-name">First Name</label>
-        <input type="text" class="form-control" id="first-name" name="firstName" />
+        <label th:for="firstName">First Name</label>
+        <input type="text" class="form-control" th:field="*{firstName}" />
+        <span th:errors="*{firstName}"></span>
     </div>
     <div class="form-group">
-        <label for="last-name">Last Name</label>
-        <input type="text" class="form-control" id="last-name" name="lastName" />
+        <label th:for="lastName">Last Name</label>
+        <input type="text" class="form-control" th:field="*{lastName}" />
+        <span th:errors="*{lastName}"></span>
     </div>
     <div class="form-group">
-        <label for="age">Age</label>
-        <input type="text" class="form-control" id="age" name="age" />
+        <label th:for="age">Age</label>
+        <input type="text" class="form-control" th:field="*{age}" />
+        <span th:errors="*{age}"></span>
+    </div>
+    <div class="form-group">
+        <label th:for="grade">Grade Level</label>
+        <select name="gradeId">
+            <option th:each="grade : ${grades}" th:text="${grade.level}" th:value="${grade.id}"></option>
+        </select>
     </div>
     <button type="submit" class="btn btn-primary">Register</button>
 </form>
